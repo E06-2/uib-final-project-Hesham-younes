@@ -1,0 +1,6 @@
+
+@mixin resizing($min, $max){
+    @media only screen and (max-width:$max) and (min-width: $min){
+        @content;
+    }
+}

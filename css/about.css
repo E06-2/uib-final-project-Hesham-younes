@@ -1,0 +1,556 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.toggle {
+  display: none;
+}
+
+.hamburger {
+  cursor: pointer;
+  padding: 1rem;
+  float: left;
+  pad: 1rem;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 30px;
+  background: black;
+  display: block;
+  margin-bottom: 5px;
+  position: relative;
+  -webkit-transition: top 0.7s ease-in-out, opacity 0.7s ease-in-out, -webkit-transform 0.7s ease-in-out;
+  transition: top 0.7s ease-in-out, opacity 0.7s ease-in-out, -webkit-transform 0.7s ease-in-out;
+  transition: transform 0.7s ease-in-out, top 0.7s ease-in-out, opacity 0.7s ease-in-out;
+  transition: transform 0.7s ease-in-out, top 0.7s ease-in-out, opacity 0.7s ease-in-out, -webkit-transform 0.7s ease-in-out;
+  z-index: 999;
+}
+
+.toggle:checked ~ .hamburger span:first-child {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  top: 8px;
+  background: white;
+}
+
+.toggle:checked ~ .hamburger span:last-child {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  top: -8px;
+  background: white;
+}
+
+.toggle:checked ~ .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu {
+  cursor: pointer;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: baseline;
+      -ms-flex-pack: baseline;
+          justify-content: baseline;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: black;
+  width: 100%;
+  height: 10%;
+  padding: 22px 70px;
+  position: absolute;
+  top: -10vh;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transition: top 1s ease-in-out;
+  transition: top 1s ease-in-out;
+  z-index: 99;
+  opacity: 0;
+}
+
+.toggle:checked ~ nav {
+  top: 0;
+  opacity: 1;
+}
+
+@media only screen and (max-width: 800px) and (min-width: 320px) {
+  .toggle:checked ~ nav {
+    width: 100%;
+    height: 4vh;
+  }
+}
+
+ul {
+  list-style-type: none;
+  display: inline;
+}
+
+ul li {
+  display: inline-block;
+}
+
+ul li a {
+  color: white;
+  font-size: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+  padding: 0.5rem;
+  position: relative;
+}
+
+@media only screen and (max-width: 350px) and (min-width: 320px) {
+  ul li a {
+    font-size: 1.5rem;
+  }
+}
+
+ul li a::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: bottom right;
+          transform-origin: bottom right;
+  -webkit-transition: -webkit-transform 0.3s ease-in;
+  transition: -webkit-transform 0.3s ease-in;
+  transition: transform 0.3s ease-in;
+  transition: transform 0.3s ease-in, -webkit-transform 0.3s ease-in;
+}
+
+ul li a:hover:after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  background-color: #f3f053;
+  -webkit-transform-origin: bottom right;
+          transform-origin: bottom right;
+}
+
+section {
+  height: 100vh;
+  width: 100vw;
+}
+
+.card {
+  height: 100vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: auto;
+  gap: 3rem;
+  background: -webkit-gradient(linear, left bottom, left top, from(#ffefba), to(#ffffff));
+  background: linear-gradient(to top, #ffefba, #ffffff);
+}
+
+.card .left {
+  height: 90vh;
+  width: 38vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 4rem;
+}
+
+.card .left .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 40vh;
+  width: 20vw;
+}
+
+.card .left .info img {
+  max-height: 20rem;
+  max-width: 20rem;
+  border: 2px solid black;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 480px) and (min-width: 320px) {
+  .card .left .info img {
+    max-height: 9rem;
+    max-height: 9rem;
+  }
+}
+
+@media only screen and (max-width: 950px) and (min-width: 480px) {
+  .card .left .info img {
+    max-height: 15rem;
+    max-height: 15rem;
+  }
+}
+
+@media only screen and (max-width: 1300px) and (min-width: 950px) {
+  .card .left .info img {
+    max-height: 15rem;
+    max-height: 15rem;
+  }
+}
+
+.card .left .info h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 480px) and (min-width: 320px) {
+  .card .left .info h2 {
+    font-size: 1.3rem;
+  }
+}
+
+@media only screen and (max-width: 950px) and (min-width: 480px) {
+  .card .left .info h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media only screen and (max-width: 1300px) and (min-width: 950px) {
+  .card .left .info h2 {
+    font-size: 3rem;
+  }
+}
+
+.card .left p {
+  font-size: 3rem;
+  color: #c4c8ca;
+  border-bottom: 1px solid #c4c8ca;
+}
+
+@media only screen and (max-width: 480px) and (min-width: 320px) {
+  .card .left p {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 950px) and (min-width: 480px) {
+  .card .left p {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 1300px) and (min-width: 950px) {
+  .card .left p {
+    font-size: 2rem;
+    text-align: center;
+  }
+}
+
+.card .left .skills {
+  width: 25vw;
+  height: 40vh;
+  border: 1px solid white;
+  border-radius: 2%;
+  -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+.card .left .skills .skill-bar {
+  margin: 2rem;
+}
+
+.card .left .skills .skill-bar .bar {
+  padding-bottom: 4rem;
+}
+
+.card .left .skills .skill-bar .bar .progress-line {
+  position: relative;
+  height: 3px;
+  width: 100%;
+  background-color: #2979af;
+  border-radius: 3%;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-animation: line 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+          animation: line 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+}
+
+@-webkit-keyframes line {
+  100% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+}
+
+@keyframes line {
+  100% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+}
+
+.card .left .skills .skill-bar .bar .progress-line .html {
+  position: absolute;
+  width: 50%;
+  height: 4px;
+  background-color: #1dd2ff;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-animation: liner 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+          animation: liner 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+}
+
+@-webkit-keyframes liner {
+  100% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+}
+
+@keyframes liner {
+  100% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+}
+
+.card .left .skills .skill-bar .bar .progress-line .css {
+  position: absolute;
+  width: 30%;
+  height: 4px;
+  background-color: #1dd2ff;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-animation: liner 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+          animation: liner 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+}
+
+@keyframes liner {
+  100% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+}
+
+.card .left .skills .skill-bar .bar .progress-line .React {
+  position: absolute;
+  width: 1%;
+  height: 4px;
+  background-color: #1dd2ff;
+}
+
+.card .left .skills .skill-bar .bar .progress-line .js {
+  position: absolute;
+  width: 1%;
+  height: 4px;
+  background-color: #1dd2ff;
+}
+
+.card .left .skills .skill-bar .bar .skill-info {
+  font-size: 2rem;
+  color: black;
+}
+
+@media only screen and (max-width: 480px) and (min-width: 320px) {
+  .card .left .skills .skill-bar .bar .skill-info {
+    font-size: 1rem;
+  }
+}
+
+.card .left .skills .skill-bar .bar .skill-info .persint {
+  float: right;
+}
+
+.right {
+  /* position: relative; */
+  height: 90vh;
+  width: 55vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.right .boxR {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 90%;
+  width: 90%;
+}
+
+.right .boxR .text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80%;
+  height: 100%;
+  margin: auto;
+  -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  font-size: 3rem;
+  color: black;
+  border-radius: 3%;
+}
+
+.right .boxR .text p {
+  padding: 5rem;
+  font-size: 3rem;
+  font-style: italic;
+}
+
+@media only screen and (max-width: 800px) and (min-width: 320px) {
+  .right .boxR .text p {
+    font-size: 1.5rem;
+  }
+}
+
+.right .boxR .text a {
+  text-decoration: none;
+  color: black;
+}
+
+.right .boxR .text a:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
+.contact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100vh;
+  width: 100%;
+  padding-top: 2rem;
+}
+
+.contact .contact-me {
+  height: 100vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: -webkit-gradient(linear, left top, right top, from(#0f2027), color-stop(#203a43), to(#2c5364));
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+}
+
+.contact .contact-me .contact-us {
+  margin-top: 6rem;
+  height: 80vh;
+  width: 50%;
+  padding: 5rem;
+  background-color: #ffffff;
+}
+
+.contact .contact-me .contact-us h2 {
+  color: black;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.contact .contact-me .contact-us textarea {
+  margin-top: 3rem;
+  width: 90%;
+  padding: 1rem;
+}
+
+.contact .contact-me .contact-us label {
+  display: block;
+  padding: 2rem;
+}
+
+.contact .contact-me .contact-us input {
+  display: block;
+  width: 50%;
+  height: 3rem;
+  border: none;
+  border-bottom: 1px solid #a2a2a2;
+}
+
+.contact .contact-me .contact-us input:focus {
+  width: 90%;
+  -webkit-transition: 2s;
+  transition: 2s;
+}
+
+.contact .contact-me .contact-us input:hover {
+  width: 90%;
+  -webkit-transition: 2s;
+  transition: 2s;
+}
+
+.contact .contact-me .contact-us .submit {
+  text-align: center;
+  height: 4rem;
+  width: 90%;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  color: #000000;
+  background-color: #0aaf4e;
+}
+/*# sourceMappingURL=about.css.map */
