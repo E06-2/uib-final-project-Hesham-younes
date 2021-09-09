@@ -49,7 +49,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: black;
+  background: linear-gradient(to right, #8e9eab, #eef2f3);
   width: 100%;
   height: 4vh;
   padding: 30px 70px;
@@ -123,7 +123,6 @@ ul {
 section {
   height: 100vh;
   width: 100vw;
-}
 .card {
   height: 100vh;
   width: 100%;
@@ -187,7 +186,7 @@ section {
     }
     p {
       font-size: 3rem;
-      color: #c4c8ca;
+      color: #616364;
       border-bottom: 1px solid #c4c8ca;
       @include resizing(320px, 480px) {
         font-size: 1.2rem;
@@ -288,53 +287,10 @@ section {
 }
 //left section end
 
-.right {
-  /* position: relative; */
-  height: 90vh;
-  width: 55vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
-  .boxR {
-    display: flex;
-    justify-content: center;
-    height: 90%;
-    width: 90%;
 
-    .text {
-      display: flex;
-      text-align: center;
-      justify-content: center;
-      align-items: center;
-      width: 80%;
-      height: 100%;
-      margin: auto;
-      box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3),
-        0 15px 12px rgba(0, 0, 0, 0.22);
-      font-size: 3rem;
-      color: black;
-      border-radius: 3%;
-
-      p {
-        padding: 5rem;
-        font-size: 3rem;
-        font-style: italic;
-        @include resizing(320px, 800px) {
-          font-size: 1.5rem;
-        }
-      }
-      a {
-        text-decoration: none;
-        color: black;
-        &:hover {
-          color: blue;
-          text-decoration: underline;
-        }
-      }
-    }
-  }
 }
+
 //contact me start
 .contact {
   display: flex;
@@ -366,17 +322,21 @@ section {
       .bg {
         grid-column: 2 / 3;
         grid-row: 1 / 3;
-        background-image: url(../img/images.jpeg);
+        background-image: url(../img/annie-spratt-YGBaA4UdoLY-unsplash.jpg);
         background-position: center;
         background-size: cover;
         object-fit: cover;
         &:hover{
           opacity: 0.8;
         }
+        @include resizing(320px,480px){
+          
+        }
       }
       form {
         grid-column: 1 / 2;
         grid-row: 1 / 3;
+        
         
 
 
@@ -390,6 +350,7 @@ section {
         label {
           display: block;
           padding: 2rem;
+         
         }
 
         input {
@@ -406,6 +367,7 @@ section {
           &:hover{
             width: 80%;
           }
+          
         }
 
         textarea {
@@ -432,8 +394,19 @@ section {
             background-color: #4da5d8;
           }
         }
+        
+          a{
+          color: black;
+          .fa-github{
+          padding-top: 1rem;
+          font-size: 3rem;
+         
+          
+          
+        }
       }
     }
   }
+}
 }
 //contact me end

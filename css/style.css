@@ -18,7 +18,7 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  height: 100vh;
+  height: 70vh;
   width: 100%;
 }
 
@@ -81,7 +81,7 @@ nav {
           align-items: center;
   background: black;
   width: 20vh;
-  height: 100vh;
+  height: 70vh;
   padding: 30px 70px;
   position: absolute;
   left: 0;
@@ -153,7 +153,7 @@ ul li a:hover:after {
 }
 
 .banner {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   background-image: url(../img/cropped-cropped-cropped-website-design-background1.png);
   background-repeat: no-repeat;
@@ -249,7 +249,7 @@ ul li a:hover:after {
   color: white;
   display: inline-block;
   font-size: 5rem;
-  top: 25rem;
+  top: 19rem;
 }
 
 @media only screen and (max-width: 700px) and (min-width: 320px) {
@@ -264,5 +264,88 @@ ul li a:hover:after {
     font-size: 2rem;
     top: 25rem;
   }
+}
+
+.right {
+  /* position: relative; */
+  height: 90vh;
+  width: 96%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin: auto;
+  background: -webkit-gradient(linear, left top, right top, from(#8e9eab77), to(#eef2f3));
+  background: linear-gradient(to right, #8e9eab77, #eef2f3);
+}
+
+.right .boxR {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  width: 100%;
+  gap: 2rem;
+  margin: auto;
+}
+
+.right .boxR .img {
+  height: 100%;
+  width: 50%;
+  background-image: url(../img/images.jpeg);
+  background-position: center;
+  background-size: cover;
+  border-radius: 3%;
+}
+
+.right .boxR .text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50%;
+  height: 100%;
+  margin: auto;
+  -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  font-size: 3rem;
+  color: black;
+  border-radius: 3%;
+}
+
+.right .boxR .text p {
+  padding: 5rem;
+  font-size: 3rem;
+  font-style: italic;
+}
+
+@media only screen and (max-width: 800px) and (min-width: 320px) {
+  .right .boxR .text p {
+    font-size: 1.5rem;
+  }
+}
+
+.right .boxR .text a {
+  text-decoration: none;
+  color: black;
+}
+
+.right .boxR .text a:hover {
+  color: blue;
+  text-decoration: underline;
 }
 /*# sourceMappingURL=style.css.map */
