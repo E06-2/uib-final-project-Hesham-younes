@@ -1,5 +1,6 @@
 @import "./setting/setting";
 .container {
+  position: relative;
   /* background-color: black; */
   display: flex;
   flex-direction: row;
@@ -16,11 +17,12 @@
   padding: 1rem;
   float: left;
   pad: 1rem;
+  position: absolute;
 
   span {
     height: 3px;
     width: 30px;
-    background: black;
+    background: rgb(155, 151, 151);
     display: block;
     margin-bottom: 5px;
     position: relative;
@@ -55,7 +57,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: black;
+  background: rgba(0, 0, 0, 0.3);
   width: 20vh;
   height: 100vh;
   padding: 30px 70px;
@@ -204,7 +206,7 @@ ul {
 .right {
   /* position: relative; */
   height: 90vh;
-  width: 96%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-start;

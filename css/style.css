@@ -10,6 +10,7 @@ html {
 }
 
 .container {
+  position: relative;
   /* background-color: black; */
   display: -webkit-box;
   display: -ms-flexbox;
@@ -31,12 +32,13 @@ html {
   padding: 1rem;
   float: left;
   pad: 1rem;
+  position: absolute;
 }
 
 .hamburger span {
   height: 3px;
   width: 30px;
-  background: black;
+  background: #9b9797;
   display: block;
   margin-bottom: 5px;
   position: relative;
@@ -79,7 +81,7 @@ nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: black;
+  background: rgba(0, 0, 0, 0.3);
   width: 20vh;
   height: 100vh;
   padding: 30px 70px;
@@ -269,7 +271,7 @@ ul li a:hover:after {
 .right {
   /* position: relative; */
   height: 90vh;
-  width: 96%;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
