@@ -10,7 +10,7 @@ html {
 }
 
 .container {
-  background-color: black;
+  /* background-color: black; */
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -36,7 +36,7 @@ html {
 .hamburger span {
   height: 3px;
   width: 30px;
-  background: white;
+  background: black;
   display: block;
   margin-bottom: 5px;
   position: relative;
@@ -51,12 +51,14 @@ html {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
   top: 8px;
+  background-color: white;
 }
 
 .toggle:checked ~ .hamburger span:last-child {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
   top: -8px;
+  background-color: white;
 }
 
 .toggle:checked ~ .hamburger span:nth-child(2) {
@@ -263,11 +265,4 @@ ul li a:hover:after {
     top: 25rem;
   }
 }
-
-/* .main{
-            display: flex;
-            height: 100vh;
-            width: 100%;
-            background:linear-gradient(to top, #ffefba, #ffffff);
-          } */
 /*# sourceMappingURL=style.css.map */

@@ -1,6 +1,6 @@
 @import "./setting/setting";
 .container {
-  background-color: black;
+  /* background-color: black; */
   display: flex;
   flex-direction: row;
   height: 100vh;
@@ -20,7 +20,7 @@
   span {
     height: 3px;
     width: 30px;
-    background: white;
+    background: black;
     display: block;
     margin-bottom: 5px;
     position: relative;
@@ -32,11 +32,13 @@
     .toggle:checked ~ &:first-child {
       transform: rotate(45deg);
       top: 8px;
+      background-color: white;
     }
 
     .toggle:checked ~ &:last-child {
       transform: rotate(-45deg);
       top: -8px;
+      background-color: white;
     }
 
     .toggle:checked ~ &:nth-child(2) {
@@ -114,7 +116,7 @@ ul {
     }
   }
 }
-
+//end nav section
 //start banner
 .banner {
   height: 100vh;
@@ -199,14 +201,8 @@ ul {
 //end banner
 
 
-          /* .main{
-            display: flex;
-            height: 100vh;
-            width: 100%;
-            background:linear-gradient(to top, #ffefba, #ffffff);
-          } */
 
-        
+
        
 
      

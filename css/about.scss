@@ -26,13 +26,13 @@
     .toggle:checked ~ &:first-child {
       transform: rotate(45deg);
       top: 8px;
-      background: white;
+      background-color: white;
     }
 
     .toggle:checked ~ &:last-child {
       transform: rotate(-45deg);
       top: -8px;
-      background: white;
+      background-color: white;
     }
 
     .toggle:checked ~ &:nth-child(2) {
@@ -44,19 +44,19 @@
 .menu {
   cursor: pointer;
 }
-
+//nav section
 nav {
   display: flex;
-  justify-content: baseline;
+  justify-content: center;
   align-items: center;
   background: black;
   width: 100%;
-  height: 10%;
-  padding: 22px 70px;
+  height: 4vh;
+  padding: 30px 70px;
   position: absolute;
-  top: -10vh;
+  left: 0;
   box-sizing: border-box;
-  transition: top 1s ease-in-out;
+  transition: left 0.2s ease-in-out;
   z-index: 99;
   opacity: 0;
   //end nav
@@ -64,11 +64,12 @@ nav {
   // ~ to inject the parent
   // .toggle:checked ~ nav{}
   .toggle:checked ~ & {
-    top: 0;
+    right: 0;
     opacity: 1;
     @include resizing(320px, 800px) {
       width: 100%;
-      height: 4vh;
+      height: 5vh;
+      opacity: 0.5;
     }
   }
 }
@@ -77,22 +78,16 @@ nav {
 ul {
   list-style-type: none;
   display: inline;
-
   li {
     display: inline-block;
-
     a {
       color: white;
       font-size: 2rem;
       display: flex;
-      gap: 5rem;
-      align-items: center;
+      justify-content: flex-start;
       text-decoration: none;
-      padding: 0.5rem;
+      padding: 1.5rem;
       position: relative;
-      @include resizing(320px, 350px) {
-        font-size: 1.5rem;
-      }
 
       &::after {
         content: "";
@@ -116,7 +111,15 @@ ul {
     }
   }
 }
+//end nav section
 
+
+
+
+
+
+
+//start card section
 section {
   height: 100vh;
   width: 100vw;
@@ -129,7 +132,7 @@ section {
   justify-content: center;
   margin: auto;
   gap: 3rem;
-  background: linear-gradient(to top, #ffefba, #ffffff);
+  background: linear-gradient(to right, #8e9eab, #eef2f3);
   //let section start
   .left {
     height: 90vh;
@@ -206,83 +209,84 @@ section {
       border-radius: 2%;
       box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3),
         0 15px 12px rgba(0, 0, 0, 0.22);
+      //
+    }
 
-      .skill-bar {
-        margin: 2rem;
+    .skill-bar {
+      margin: 2rem;
 
-        .bar {
-          padding-bottom: 4rem;
-          .progress-line {
-            position: relative;
-            height: 3px;
-            width: 100%;
-            background-color: #2979af;
-            border-radius: 3%;
+      .bar {
+        padding-bottom: 4rem;
+        .progress-line {
+          position: relative;
+          height: 3px;
+          width: 100%;
+          background-color: #2979af;
+          border-radius: 3%;
+          transform: scaleX(0);
+          transform-origin: left;
+          animation: line 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+          @keyframes line {
+            100% {
+              transform: scaleX(1);
+            }
+          }
+
+          .html {
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background-color: #1dd2ff;
             transform: scaleX(0);
-            transform-origin: left;
-            animation: line 1s cubic-bezier(1, 0, 0.5, 1) forwards;
-            @keyframes line {
+            animation: liner 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+            @keyframes liner {
               100% {
                 transform: scaleX(1);
               }
             }
-
-            .html {
-              position: absolute;
-              width: 50%;
-              height: 4px;
-              background-color: #1dd2ff;
-              transform: scaleX(0);
-              animation: liner 1s cubic-bezier(1, 0, 0.5, 1) forwards;
-              @keyframes liner {
-                100% {
-                  transform: scaleX(1);
-                }
+          }
+          .css {
+            position: absolute;
+            width: 30%;
+            height: 4px;
+            background-color: #1dd2ff;
+            transform: scaleX(0);
+            animation: liner 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+            @keyframes liner {
+              100% {
+                transform: scaleX(1);
               }
-            }
-            .css {
-              position: absolute;
-              width: 30%;
-              height: 4px;
-              background-color: #1dd2ff;
-              transform: scaleX(0);
-              animation: liner 1s cubic-bezier(1, 0, 0.5, 1) forwards;
-              @keyframes liner {
-                100% {
-                  transform: scaleX(1);
-                }
-              }
-            }
-
-            .React {
-              position: absolute;
-              width: 1%;
-              height: 4px;
-              background-color: #1dd2ff;
-            }
-            .js {
-              position: absolute;
-              width: 1%;
-              height: 4px;
-              background-color: #1dd2ff;
             }
           }
-          .skill-info {
-            font-size: 2rem;
-            color: black;
-            @include resizing(320px, 480px) {
-              font-size: 1rem;
-            }
-            .persint {
-              float: right;
-            }
+
+          .React {
+            position: absolute;
+            width: 1%;
+            height: 4px;
+            background-color: #1dd2ff;
+          }
+          .js {
+            position: absolute;
+            width: 1%;
+            height: 4px;
+            background-color: #1dd2ff;
+          }
+        }
+        .skill-info {
+          font-size: 2rem;
+          color: black;
+          @include resizing(320px, 480px) {
+            font-size: 1rem;
+          }
+          .persint {
+            float: right;
           }
         }
       }
     }
   }
-  //left section end
 }
+//left section end
 
 .right {
   /* position: relative; */
@@ -331,7 +335,7 @@ section {
     }
   }
 }
-
+//contact me start
 .contact {
   display: flex;
   justify-content: center;
@@ -345,67 +349,91 @@ section {
     display: flex;
     align-content: center;
     justify-content: center;
-    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-    
+    background: linear-gradient(to left, #8e9eab, #eef2f3);
     .contact-us {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(1, auto);
       margin-top: 6rem;
-      height: 80vh;
-      width: 50%;
+      height: 90vh;
+      width: 90%;
       padding: 5rem;
       background-color: #ffffff;
-      
-      h2{
-        color: black;
-        font-size: 2rem;
-        text-align: center;
+      @include resizing(320px, 800px) {
+        width: 100vw;
       }
-      textarea{
-        margin-top: 3rem;
-        width: 90%;
-        padding: 1rem;
-      }
-      label {
-        display: block;
-        padding: 2rem;
-        }
-      input{
-        display: block;
-         width: 50%;
-         height: 3rem;
-         border: none;
-         border-bottom: 1px solid #a2a2a2;
-         
-         &:focus{
-          width: 90%;
-          transition: 2s;
-          
-           
-         }
-         &:hover{
-           width: 90%;
-           transition: 2s;
-           
-         }
-         
 
-         }
-         .submit{
-           text-align: center;
-           height: 4rem;
-           width: 90%;
-           font-size: 1.5rem;
-           margin-top: 1rem;
-           padding: 1rem;
-           color: #000000;
-           background-color: #0aaf4e;
-           
-           
-         }
+      .bg {
+        grid-column: 2 / 3;
+        grid-row: 1 / 3;
+        background-image: url(../img/images.jpeg);
+        background-position: center;
+        background-size: cover;
+        object-fit: cover;
+        &:hover{
+          opacity: 0.8;
+        }
+      }
+      form {
+        grid-column: 1 / 2;
+        grid-row: 1 / 3;
+        
+
+
+        h2 {
+          color: black;
+          font-size: 2rem;
+          display: inline;
          
-         
-      
-     
-      
+        }
+
+        label {
+          display: block;
+          padding: 2rem;
+        }
+
+        input {
+          display: block;
+          width: 60%;
+          height: 3rem;
+          border-style: hidden;
+          
+          border-bottom: 1px solid #a2a2a2;
+          transition: 5s;
+          &:focus {
+            outline: none;
+          }
+          &:hover{
+            width: 80%;
+          }
+        }
+
+        textarea {
+          margin-top: 3rem;
+          width: 70%;
+          padding: 1rem;
+          overflow: hidden;
+        }
+
+        button {
+          display: block;
+          text-align: center;
+          height: 4rem;
+          width: 50%;
+          margin-top: 1rem;
+          border-radius: 5%;
+          background-color: #8e9eab;
+          a {
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+          }
+          &:hover {
+            background-color: #4da5d8;
+          }
+        }
+      }
     }
   }
 }
+//contact me end
