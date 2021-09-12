@@ -1,0 +1,452 @@
+@import "./setting/setting";
+
+//start toggle section & nav
+.toggle {
+  display: none;
+}
+
+.hamburger {
+  cursor: pointer;
+  padding: 1rem;
+  float: left;
+  pad: 1rem;
+  position: absolute;
+
+  span {
+    height: 3px;
+    width: 30px;
+    background: black;
+    display: block;
+    margin-bottom: 5px;
+    position: relative;
+    transition: transform 0.7s ease-in-out, top 0.7s ease-in-out,
+      opacity 1s ease-in-out;
+    z-index: 999;
+
+    //
+    .toggle:checked ~ &:first-child {
+      transform: rotate(45deg);
+      top: 8px;
+      background-color: white;
+    }
+
+    .toggle:checked ~ &:last-child {
+      transform: rotate(-45deg);
+      top: -8px;
+      background-color: white;
+    }
+
+    .toggle:checked ~ &:nth-child(2) {
+      opacity: 0;
+    }
+  }
+}
+
+.menu {
+  cursor: pointer;
+}
+//nav section
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  width: 100%;
+  height: 4vh;
+  padding: 30px 70px;
+  position: absolute;
+  left: 0;
+  box-sizing: border-box;
+  transition: left 0.2s ease-in-out;
+  z-index: 99;
+  opacity: 0;
+  //end nav
+  //~ to target a sipling
+  // ~ to inject the parent
+  // .toggle:checked ~ nav{}
+  .toggle:checked ~ & {
+    right: 0;
+    opacity: 1;
+    @include resizing(320px, 800px) {
+      width: 100%;
+      height: 5vh;
+      opacity: 0.5;
+    }
+  }
+}
+
+//ul li a
+ul {
+  list-style-type: none;
+  display: inline;
+  li {
+    display: inline-block;
+    a {
+      color: white;
+      font-size: 2rem;
+      display: flex;
+      justify-content: flex-start;
+      text-decoration: none;
+      padding: 1.5rem;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: black;
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        transition: transform 0.7s ease-in;
+      }
+
+      &:hover:after {
+        transform: scaleX(1);
+        background-color: rgb(243, 240, 83);
+        transform-origin: bottom right;
+      }
+    }
+  }
+}
+//end nav section
+
+
+
+
+
+
+
+//start card section
+section {
+  height: 100vh;
+  width: 100vw;
+.card {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  gap: 3rem;
+  background: linear-gradient(to right, #8e9eab, #eef2f3);
+  
+  //let section start
+  .left {
+    height: 90vh;
+    width: 38vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4rem;
+    
+    .info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 40vh;
+      width: 20vw;
+      
+      img {
+        max-height: 20rem;
+        max-width: 20rem;
+        border: 2px solid black;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+        @include resizing(320px, 480px) {
+          max-height: 9rem;
+          max-height: 9rem;
+        }
+        @include resizing(480px, 950px) {
+          max-height: 15rem;
+          max-height: 15rem;
+        }
+        @include resizing(950px, 1300px) {
+          max-height: 15rem;
+          max-height: 15rem;
+        }
+      }
+      h2 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        @include resizing(320px, 480px) {
+          font-size: 1.3rem;
+        }
+
+        @include resizing(480px, 950px) {
+          font-size: 1.8rem;
+        }
+
+        @include resizing(950px, 1300px) {
+          font-size: 3rem;
+        }
+      }
+    }
+    p {
+      font-size: 3rem;
+      color: #616364;
+      border-bottom: 1px solid #c4c8ca;
+      @include resizing(320px, 480px) {
+        font-size: 1.2rem;
+        text-align: center;
+      }
+      @include resizing(480px, 950px) {
+        font-size: 1.5rem;
+        text-align: center;
+      }
+      @include resizing(950px, 1300px) {
+        font-size: 2rem;
+        text-align: center;
+      }
+    }
+    .skills {
+      width: 25vw;
+      height: 40vh;
+      border: 1px solid white;
+      border-radius: 2%;
+      box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3),
+        0 15px 12px rgba(0, 0, 0, 0.22);
+      
+        @include resizing(320px,800px){
+          height: 90vh;
+          width: 70vw;
+          
+        }
+
+        @include resizing(800px,1200px){
+          height: 90vh;
+          width: 60vw;
+
+        }
+
+        
+    }
+
+    .skill-bar {
+      margin: 2rem;
+
+      .bar {
+        padding-bottom: 4rem;
+        .progress-line {
+          position: relative;
+          height: 3px;
+          width: 100%;
+          background-color: #2979af;
+          border-radius: 3%;
+          transform: scaleX(0);
+          transform-origin: left;
+          animation: line 3s cubic-bezier(1, 0, 0.5, 1) forwards;
+          @keyframes line {
+            100% {
+              transform: scaleX(1);
+            }
+          }
+
+          .html {
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background-color: #1dd2ff;
+            transform: scaleX(0);
+            animation: liner 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+            @keyframes liner {
+              100% {
+                transform: scaleX(1);
+              }
+            }
+          }
+          .css {
+            position: absolute;
+            width: 30%;
+            height: 4px;
+            background-color: #1dd2ff;
+            transform: scaleX(0);
+            animation: liner 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+            @keyframes liner {
+              100% {
+                transform: scaleX(1);
+              }
+            }
+          }
+
+          .React {
+            position: absolute;
+            width: 1%;
+            height: 4px;
+            background-color: #1dd2ff;
+          }
+          .js {
+            position: absolute;
+            width: 1%;
+            height: 4px;
+            background-color: #1dd2ff;
+          }
+        }
+        .skill-info {
+          font-size: 2rem;
+          color: black;
+          @include resizing(320px, 480px) {
+            font-size: 1rem;
+          }
+          .persint {
+            float: right;
+          }
+        }
+      }
+      
+    }
+  }
+}
+//left section end
+
+
+
+}
+
+//contact me start
+.contact {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  
+
+  .contact-me {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    background: linear-gradient(to left, #8e9eab, #eef2f3);
+    .contact-us {
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(1, auto);
+      margin-top: 6rem;
+      height: 90%;
+      width: 90%;
+      padding: 5rem;
+      background-color: #ffffff;
+      @include resizing(320px,1800px){
+        height: 100vh;
+        width: 100vw;
+      }
+      
+     
+      
+
+      .bg {
+        grid-column: 2 / 3;
+        grid-row: 1 / 3;
+        height: 80vh;
+        background-image: url(../img/annie-spratt-YGBaA4UdoLY-unsplash.jpg);
+        background-position: center;
+        background-size: cover;
+        object-fit: cover;
+        &:hover{
+          opacity: 0.8;
+        }
+        @include resizing(320px,680px){
+          display: none;
+        }
+        @include resizing(680px,1800px){
+          height: 100vh;
+          width: 50vw;
+          
+        }
+        
+
+      }
+      form {
+        margin: 3rem;
+        height: 70vh;
+        grid-column: 1 / 2;
+        grid-row: 1 / 3;
+        @include resizing(320px,680px){
+          height: 1000vh;
+          width: 100vw;
+         
+        }
+        @include resizing(680px,1400px){
+          height: 100vh;
+          width: 50vw;
+        }
+        
+        
+        h2 {
+          color: black;
+          font-size: 2rem;
+          display: inline;
+        }
+        label {
+          display: block;
+          padding: 4rem;
+         
+        }
+
+        input {
+          display: block;
+          width: 60%;
+          height: 3rem;
+          border-style: hidden;
+          font-size: 2rem;
+          border-bottom: 1px solid #a2a2a2;
+          transition: 5s;
+          @include resizing(320px,480px){
+            font-size: 1rem;
+          }
+          &:focus {
+            outline: none;
+          }
+          &:hover{
+            width: 80%;
+          }
+          
+        }
+
+        textarea {
+          margin-top: 6rem;
+          width: 70%;
+          
+          padding: 1rem;
+          overflow: hidden;
+        }
+
+        button {
+          display: block;
+          text-align: center;
+          height: 4rem;
+          width: 50%;
+          margin-top: 5rem;
+          border-radius: 5%;
+          background-color: #8e9eab;
+          a {
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+          }
+          &:hover {
+            background-color: #4da5d8;
+          }
+        }
+        
+          a{
+          color: black;
+          .fa-github{
+          padding-top: 1rem;
+          font-size: 3rem;
+         
+          
+          
+        }
+      }
+    }
+  }
+}
+}
+//contact me end
